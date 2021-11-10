@@ -7,6 +7,8 @@
         + If a plane lands, its `isFlying` property is set to false.
 */
 
+
+
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
   this.name = name;
@@ -18,7 +20,6 @@ Airplane.prototype.takeOff = function () {
 Airplane.prototype.land = function () {
   this.isFlying = false;
 };
-
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -39,9 +40,49 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-  
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];  
 }
+
+
+Person.prototype.eat = function(edible){
+  if(this.stomach < 10){
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+
+
+
+
+const kyler = new Person('Kyler', 25);
+const ben = new Person('ben', 28);
+
+console.log(kyler.toString());
+console.log(ben.toString());
+
+
+ben.eat('pizza');
+ben.eat('oatmeal');
+ben.eat('cheese');
+ben.eat('pie');
+ben.eat('cookies');
+ben.eat('cake');
+ben.eat('noodles');
+
+
+console.log(ben.stomach);
+
+
 
 
 
